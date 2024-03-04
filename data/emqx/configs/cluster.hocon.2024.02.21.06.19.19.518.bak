@@ -1,22 +1,19 @@
 authentication = [
   {
-    auth_source = gscdb
     backend = mongodb
-    collection = user
+    collection = User
     database = gscdb
     enable = true
     filter {username = "${username}"}
     is_superuser_field = is_superuser
     mechanism = password_based
-    mongo_type = rs
+    mongo_type = single
     password = useratgsc
     password_hash_algorithm {name = bcrypt}
     password_hash_field = password
     pool_size = 8
-    r_mode = master
-    replica_set_name = rs0
     salt_field = salt
-    servers = "localhost:27017,localhost:27018,localhost:27019"
+    server = "127.0.0.1"
     srv_record = false
     ssl {
       ciphers = []
@@ -30,12 +27,11 @@ authentication = [
       versions = [tlsv1.3, tlsv1.2]
     }
     topology {
-      connect_timeout_ms = 20s
+      connect_timeout_ms = 20m
       heartbeat_frequency_ms = 200s
       max_overflow = 0
     }
     use_legacy_protocol = auto
     username = gscuser
-    w_mode = safe
   }
 ]

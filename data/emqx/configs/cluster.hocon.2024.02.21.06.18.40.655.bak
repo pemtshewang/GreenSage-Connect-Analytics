@@ -1,6 +1,5 @@
 authentication = [
   {
-    auth_source = gscdb
     backend = mongodb
     collection = user
     database = gscdb
@@ -16,8 +15,8 @@ authentication = [
     r_mode = master
     replica_set_name = rs0
     salt_field = salt
-    servers = "127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019"
-    srv_record = true
+    servers = "127.0.0.1:27017"
+    srv_record = false
     ssl {
       ciphers = []
       depth = 10
@@ -30,12 +29,12 @@ authentication = [
       versions = [tlsv1.3, tlsv1.2]
     }
     topology {
-      connect_timeout_ms = 20s
+      connect_timeout_ms = 20m
       heartbeat_frequency_ms = 200s
       max_overflow = 0
     }
     use_legacy_protocol = auto
     username = gscuser
-    w_mode = safe
+    w_mode = unsafe
   }
 ]

@@ -49,10 +49,3 @@ scrape_configs:
     basic_auth:
       username: 'admin'
       password: '$10Bpemtshewang'
-        
-alerting:
-  alertmanagers:
-  - scheme: http
-    static_configs:
-    - targets: 
-      - 'alertmanager:9093'

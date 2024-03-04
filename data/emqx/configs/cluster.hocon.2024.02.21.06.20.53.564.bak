@@ -1,8 +1,7 @@
 authentication = [
   {
-    auth_source = gscdb
     backend = mongodb
-    collection = user
+    collection = User
     database = gscdb
     enable = true
     filter {username = "${username}"}
@@ -13,10 +12,9 @@ authentication = [
     password_hash_algorithm {name = bcrypt}
     password_hash_field = password
     pool_size = 8
-    r_mode = master
     replica_set_name = rs0
     salt_field = salt
-    servers = "127.0.0.1:27017,127.0.0.1:27018,127.0.0.1:27019"
+    servers = "192.168.137.27:27017"
     srv_record = false
     ssl {
       ciphers = []
